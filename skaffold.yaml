@@ -1,0 +1,30 @@
+apiVersion: skaffold/v4beta13
+kind: Config
+metadata:
+  name: encryption-skaffold
+
+profiles:
+  - name: dev
+    activation:
+      - command: dev
+    deploy:
+      helm:
+        releases:
+          - name: encryption
+            chartPath: helm
+            namespace: istio-system
+            createNamespace: true
+
+  - name: prod
+    deploy:
+      helm:
+        releases:
+          - name: encryption
+            chartPath: helm
+            namespace: istio-system
+            createNamespace: true
+            valuesFiles:
+              - helm/values-prod.yaml
+            wait: true
+            upgradeOnChange: true
+

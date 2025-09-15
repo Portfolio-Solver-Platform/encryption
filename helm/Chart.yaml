@@ -1,0 +1,15 @@
+apiVersion: v2
+name: encryption
+description: Encrypts traffic on the platform
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+dependencies:
+  - name: base
+    version: 1.27.1
+    repository: "@istio"
+    alias: istio-base
+  - name: istiod
+    version: 1.27.1
+    repository: "@istio"
