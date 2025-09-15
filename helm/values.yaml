@@ -1,2 +1,8 @@
 istio-base:
   defaultRevision: default
+
+istiod:
+  revision: default
+  ambient:
+    enabled: true
+    autoInject: false
