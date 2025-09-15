@@ -1,3 +1,3 @@
 # Encryption
 
-Uses Linkerd.
+Uses Istio.
