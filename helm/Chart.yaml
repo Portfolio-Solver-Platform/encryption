@@ -9,7 +9,12 @@ dependencies:
   - name: base
     version: 1.27.1
     repository: "@istio"
-    alias: istio-base
   - name: istiod
+    version: 1.27.1
+    repository: "@istio"
+  - name: cni
+    version: 1.27.1
+    repository: "@istio"
+  - name: ztunnel
     version: 1.27.1
     repository: "@istio"

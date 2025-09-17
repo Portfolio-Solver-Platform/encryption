@@ -5,5 +5,11 @@ dependencies:
 - name: istiod
   repository: https://istio-release.storage.googleapis.com/charts
   version: 1.27.1
-digest: sha256:5bcf00bb72c96c565ce9a52ad1f144cb1eae30f4cfbcb0dd9a0179782ec4b8c6
-generated: "2025-09-15T14:38:44.931280463+02:00"
+- name: cni
+  repository: https://istio-release.storage.googleapis.com/charts
+  version: 1.27.1
+- name: ztunnel
+  repository: https://istio-release.storage.googleapis.com/charts
+  version: 1.27.1
+digest: sha256:511aa4a0c83db74f108a97163aec8da8a2f7f5f204717aeaa81da22d96db9b74
+generated: "2025-09-16T11:03:02.585730051+02:00"
