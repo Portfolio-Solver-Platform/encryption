@@ -6,6 +6,11 @@ This repository provides mutual TLS (mTLS) encryption between services on the pl
 
 For the first time setup, execute `bootstrap.sh`. Afterwards, you can use `skaffold dev`.
 
+> [!IMPORTANT]
+> The gateway will stop working if encryption is up and you then shut it down. You fix this by simply putting encryption back up again.
+
+You add encryption to a namespace or pod by labelling it with `psp/encrypt=true`.
+
 ## Contributing 
 
 ### Updating 
