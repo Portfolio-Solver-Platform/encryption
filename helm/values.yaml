@@ -10,7 +10,7 @@ cni:
         matchLabels: {psp/encrypt: true}
     - podSelector:
         matchExpressions:
-        - { key: psp/encrypt, operator: NotIn, values: [none] }
+        - { key: psp/encrypt, operator: NotIn, values: [false] }
       namespaceSelector:
         matchLabels: {psp/encrypt: true}
 
