@@ -7,10 +7,10 @@ cni:
     enabled: true
     enablementSelectors:
     - podSelector:
-        matchLabels: {psp/encrypt: true}
+        matchLabels: {psp.io/encrypt: true}
     - podSelector:
         matchExpressions:
-        - { key: psp/encrypt, operator: NotIn, values: [false] }
+        - { key: psp.io/encrypt, operator: NotIn, values: [false] }
       namespaceSelector:
-        matchLabels: {psp/encrypt: true}
+        matchLabels: {psp.io/encrypt: true}
 

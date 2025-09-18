@@ -9,7 +9,7 @@ For the first time setup, execute `bootstrap.sh`. Afterwards, you can use `skaff
 > [!IMPORTANT]
 > Communication between encrypted services will stop working if encryption is up and you then shut it down. You fix this by simply putting encryption back up again.
 
-You add encryption to a namespace or pod by labelling it with `psp/encrypt=true`.
+You add encryption to a namespace or pod by labelling it with `psp.io/encrypt=true`.
 
 ## Contributing 
 
