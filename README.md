@@ -16,3 +16,10 @@ You add encryption to a namespace or pod by labelling it with `psp.io/encrypt=tr
 ### Updating 
 
 You update Istio by executing `helm dependency update` in the `helm` directory.
+
+### Verification
+
+You can verify that traffic is being encrypted by using the following command, and looking for the desired traffic:
+```
+kubectl logs daemonsets/ztunnel -n istio-system
+```
