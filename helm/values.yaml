@@ -5,4 +5,12 @@ global:
 cni:
   ambient:
     enabled: true
+    enablementSelectors:
+    - podSelector:
+        matchLabels: {psp/encrypt: true}
+    - podSelector:
+        matchExpressions:
+        - { key: psp/encrypt, operator: NotIn, values: [none] }
+      namespaceSelector:
+        matchLabels: {psp/encrypt: true}
 
