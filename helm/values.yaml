@@ -18,9 +18,15 @@ cni:
 
             - "istio-system" # Istio cannot encrypt its own traffic because of a routing loop
             - "gke-managed-system" # Google-specific managed systems
+
+        # Exclude namespaces explicitly labeled to opt-out
+        - key: psp.io/encrypt
+          operator: NotIn
+          values: ["false"]
+
       podSelector:
         matchExpressions:
-        # Enroll all pods by default
+        # Enroll all pods by default, unless explicitly opted-out
         - key: psp.io/encrypt
           operator: NotIn
           values: ["false"]
