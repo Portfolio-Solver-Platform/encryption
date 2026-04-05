@@ -19,6 +19,8 @@ cni:
 
             - "cilium-secrets" # The CNI cannot be encrypted
 
+            - "flux-system" # FluxCD cannot be encrypted
+
             - "istio-system" # Istio cannot encrypt its own traffic because of a routing loop
             - "gke-managed-system" # Google-specific managed systems
 
