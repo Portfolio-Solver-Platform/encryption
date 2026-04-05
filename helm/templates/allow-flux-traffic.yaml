@@ -1,0 +1,11 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-intra-namespace
+  namespace: flux-system
+spec:
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        namespaces: ["flux-system"]
