@@ -16,6 +16,7 @@ cni:
             - "kube-public"
             - "kube-node-lease"
             - "kubernetes-dashboard"
+            - "default" # To avoid Istio managing the "kubernetes" service in the default namespace
 
             - "istio-system" # Istio cannot encrypt its own traffic because of a routing loop
             - "gke-managed-system" # Google-specific managed systems
