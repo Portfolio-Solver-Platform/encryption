@@ -23,6 +23,8 @@ profiles:
             chartPath: helm
             namespace: istio-system
             createNamespace: true
+            valuesFiles:
+              - helm/values-prod.yaml
             wait: true
             upgradeOnChange: true
 
