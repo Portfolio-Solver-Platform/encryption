@@ -1,4 +1,3 @@
-
 global:
   profile: ambient
 
@@ -6,11 +5,33 @@ cni:
   ambient:
     enabled: true
     enablementSelectors:
-    - podSelector:
-        matchLabels: {psp.io/encrypt: true}
-    - podSelector:
+    - namespaceSelector:
         matchExpressions:
-        - { key: psp.io/encrypt, operator: NotIn, values: [false] }
-      namespaceSelector:
-        matchLabels: {psp.io/encrypt: true}
+        # Exclude certain namespaces by name
+        - key: kubernetes.io/metadata.name
+          operator: NotIn
+          values:
+            # Kubernetes core systems cannot be encrypted
+            - "kube-system"
+            - "kube-public"
+            - "kube-node-lease"
+            - "kubernetes-dashboard"
 
+            - "cilium-secrets" # The CNI cannot be encrypted
+
+            - "flux-system" # FluxCD cannot be encrypted
+
+            - "istio-system" # Istio cannot encrypt its own traffic because of a routing loop
+            - "gke-managed-system" # Google-specific managed systems
+
+        # Exclude namespaces explicitly labeled to opt-out
+        - key: psp.io/encryption
+          operator: NotIn
+          values: ["false"]
+
+      podSelector:
+        matchExpressions:
+        # Enroll all pods by default, unless explicitly opted-out
+        - key: psp.io/encryption
+          operator: NotIn
+          values: ["false"]
