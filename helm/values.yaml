@@ -15,6 +15,9 @@ cni:
             - "kube-system"
             - "kube-public"
             - "kube-node-lease"
+            - "kubernetes-dashboard"
+
+            - "cilium-secrets" # The CNI cannot be encrypted
 
             - "istio-system" # Istio cannot encrypt its own traffic because of a routing loop
             - "gke-managed-system" # Google-specific managed systems
