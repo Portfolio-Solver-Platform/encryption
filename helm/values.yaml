@@ -2,6 +2,11 @@
 global:
   profile: ambient
 
+istiod:
+  meshConfig:
+    outboundTrafficPolicy:
+      mode: REGISTRY_ONLY
+
 cni:
   ambient:
     enabled: true
